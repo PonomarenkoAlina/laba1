@@ -1,0 +1,636 @@
+/* ОСНОВНЫЕ ЦВЕТА */
+
+:root {
+  --bg: #F3EEE6;
+  --paper: #F8F3EC;
+  --text: #2D261F;
+  --muted: #75695E;
+  --accent: #9A7848;
+  --line: #B9A58B;
+  --line-soft: rgba(154, 120, 72, 0.32);
+}
+
+
+/* ОБЩИЕ НАСТРОЙКИ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.page {
+  width: min(1380px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 56px 0 80px;
+}
+
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.script {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.heart {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+/* ПЕРВЫЙ ЭКРАН */
+
+.hero {
+  display: grid;
+  grid-template-columns: 58fr 42fr;
+  min-height: 820px;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+
+/* ФОТОГРАФИЯ */
+
+.hero-photo {
+  position: relative;
+  min-height: 820px;
+  overflow: hidden;
+  background: #DDD2C3;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.08) saturate(0.84) contrast(0.95);
+}
+
+
+/* ДЕКОРАТИВНЫЙ СКОТЧ */
+
+.tape {
+  position: absolute;
+  width: 148px;
+  height: 35px;
+  background: rgba(214, 197, 166, 0.82);
+  border: 1px solid rgba(133, 108, 78, 0.18);
+  box-shadow: 0 1px 1px rgba(52, 39, 27, 0.08);
+}
+
+.tape.top {
+  top: 26px;
+  left: 22px;
+  transform: rotate(-6deg);
+}
+
+.tape.bottom {
+  left: 24px;
+  bottom: 36px;
+  transform: rotate(4deg);
+}
+
+
+/* СУХАЯ ВЕТОЧКА */
+
+.dried-flower {
+  position: absolute;
+  left: 80px;
+  bottom: 26px;
+  width: 160px;
+  height: 180px;
+}
+
+.dried-flower::before {
+  content: "";
+  position: absolute;
+  left: 72px;
+  bottom: 0;
+  width: 2px;
+  height: 170px;
+  background: #7D6B50;
+  transform: rotate(15deg);
+  transform-origin: bottom;
+}
+
+.dried-flower span {
+  position: absolute;
+  width: 35px;
+  height: 12px;
+  border: 1px solid #9B8868;
+  border-radius: 50%;
+  transform: rotate(18deg);
+}
+
+.dried-flower span:nth-child(1) {
+  left: 76px;
+  top: 30px;
+}
+
+.dried-flower span:nth-child(2) {
+  left: 48px;
+  top: 63px;
+  transform: rotate(-8deg);
+}
+
+.dried-flower span:nth-child(3) {
+  left: 96px;
+  top: 92px;
+  transform: rotate(28deg);
+}
+
+
+/* ПРАВАЯ ЧАСТЬ ПЕРВОГО ЭКРАНА */
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 68px 56px 68px 78px;
+}
+
+.by {
+  font-size: 24px;
+  margin-bottom: -10px;
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(112px, 12vw, 196px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.role {
+  margin-top: 28px;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.32em;
+  font-size: 14px;
+}
+
+.city {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+
+/* РАЗДЕЛИТЕЛЬ */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 38px 0 42px;
+  color: var(--accent);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  background: var(--line-soft);
+  flex: 1;
+}
+
+
+/* ОБО МНЕ */
+
+.about h2,
+.section-title {
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.22em;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.about p {
+  max-width: 500px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #4B4138;
+}
+
+
+/* ИНФОРМАЦИОННЫЙ БЛОК */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 72px;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.info-col {
+  padding: 52px 44px 50px;
+  min-height: 590px;
+}
+
+.info-col + .info-col {
+  border-left: 1px solid var(--line-soft);
+}
+
+.short-line {
+  width: 56px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.55;
+  margin: 12px 0 28px;
+}
+
+
+/* СПИСОК НАПРАВЛЕНИЙ */
+
+.shoot-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shoot-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.info-col p {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: #4F453C;
+}
+
+.goal {
+  margin-top: 38px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.goal .heart {
+  display: block;
+  margin-top: 18px;
+  color: var(--accent);
+}
+
+
+/* ЭТАПЫ СЪЕМКИ */
+
+.step {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 20px;
+  margin: 0 0 24px;
+  align-items: start;
+}
+
+.step-num {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 42px;
+  color: var(--accent);
+  line-height: 1;
+  font-weight: 300;
+}
+
+.step p {
+  margin-top: 3px;
+}
+
+
+/* НИЖНИЙ КОНТАКТНЫЙ БЛОК */
+
+.contact-box {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1.1fr;
+  margin-top: 72px;
+  border: 1px solid var(--line);
+}
+
+.contact-part {
+  min-height: 280px;
+  padding: 42px 40px;
+  position: relative;
+}
+
+.contact-part + .contact-part {
+  border-left: 1px solid var(--line-soft);
+}
+
+.thanks {
+  margin-top: 34px;
+  font-size: 38px;
+  transform: rotate(-4deg);
+  display: inline-block;
+}
+
+
+/* TELEGRAM */
+
+.telegram {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.telegram-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-size: 23px;
+}
+
+
+/* QR КОД */
+
+.qr-wrap {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+.qr-copy {
+  font-size: 21px;
+  transform: rotate(-3deg);
+  line-height: 1.35;
+}
+
+.qr-heart {
+  margin-top: 14px;
+  font-size: 24px;
+}
+
+.arrow {
+  display: block;
+  width: 84px;
+  height: 42px;
+  margin: 12px 0 0 22px;
+  border-top: 1px solid var(--accent);
+  border-radius: 50%;
+  transform: rotate(15deg);
+  position: relative;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid var(--accent);
+  border-top: 1px solid var(--accent);
+  transform: rotate(38deg);
+}
+
+.qr {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border: 10px solid var(--paper);
+}
+
+
+/* ФИНАЛЬНАЯ ЦИТАТА */
+
+.quote {
+  text-align: center;
+  margin: 96px auto 26px;
+  max-width: 850px;
+  position: relative;
+  padding: 0 76px;
+}
+
+.quote::before,
+.quote::after {
+  position: absolute;
+  top: -38px;
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-size: 92px;
+  font-weight: 300;
+  opacity: 0.72;
+}
+
+.quote::before {
+  content: "“";
+  left: 8px;
+}
+
+.quote::after {
+  content: "”";
+  right: 8px;
+}
+
+.quote p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.quote .heart {
+  display: block;
+  margin-top: 24px;
+  color: var(--accent);
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+
+/* ПЛАНШЕТ */
+
+@media (max-width: 1024px) {
+
+  .page {
+    width: min(100% - 40px, 1100px);
+    padding-top: 30px;
+  }
+
+  .hero {
+    grid-template-columns: 55fr 45fr;
+    min-height: 680px;
+  }
+
+  .hero-photo {
+    min-height: 680px;
+  }
+
+  .hero-copy {
+    padding: 50px 34px 50px 46px;
+  }
+
+  .name {
+    font-size: clamp(92px, 13vw, 140px);
+  }
+
+  .info-col {
+    padding: 42px 26px;
+  }
+
+  .contact-part {
+    padding: 34px 26px;
+  }
+
+  .qr-wrap {
+    grid-template-columns: 1fr 140px;
+  }
+
+  .qr {
+    width: 140px;
+    height: 140px;
+  }
+
+}
+
+
+/* ТЕЛЕФОН */
+
+@media (max-width: 760px) {
+
+  .page {
+    width: calc(100% - 28px);
+    padding: 16px 0 50px;
+  }
+
+  .hero {
+    display: block;
+    min-height: auto;
+    border-top: 0;
+  }
+
+  .hero-photo {
+    min-height: 0;
+    aspect-ratio: 3 / 4.3;
+  }
+
+  .hero-copy {
+    padding: 48px 14px 52px;
+  }
+
+  .name {
+    font-size: clamp(96px, 28vw, 150px);
+  }
+
+  .role {
+    margin-top: 22px;
+  }
+
+  .about p {
+    font-size: 13px;
+  }
+
+  .info-grid {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .info-col {
+    min-height: auto;
+    padding: 38px 16px;
+  }
+
+  .info-col + .info-col {
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .contact-box {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .contact-part {
+    min-height: auto;
+    padding: 34px 18px;
+  }
+
+  .contact-part + .contact-part {
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .qr-wrap {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .qr-copy {
+    transform: none;
+  }
+
+  .arrow {
+    margin: 12px auto 0;
+    transform: rotate(80deg);
+  }
+
+  .qr {
+    width: 220px;
+    height: 220px;
+  }
+
+  .quote {
+    margin-top: 70px;
+    padding: 0 34px;
+  }
+
+  .quote::before,
+  .quote::after {
+    font-size: 64px;
+    top: -24px;
+  }
+
+  .quote p {
+    font-size: 21px;
+  }
+
+}
